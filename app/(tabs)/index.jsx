@@ -1,64 +1,82 @@
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { TextInput, Button, Card, Text } from 'react-native-paper';
+import { Link } from 'expo-router';
+import useLogin from '../../hooks/useLogin.js';
 
-export default function WelcomeScreen({ navigation }) {
-    const options = [
-        { id: '1', title: 'Ver Lista de tareas', screen: 'TaskList' },
-        { id: '2', title: 'Agregar tarea', screen: 'AddTask' },
-        { id: '3', title: 'Editar tarea', screen: 'EditTask' },
-        { id: '4', title: 'Ver tarea', screen: 'ViewTask' },
-        { id: '5', title: 'Configuraciones de la aplicación', screen: 'Settings' },
-    ];
+export default function LoginScreen () {
 
-    const renderItem = ({ item }) => (
-        <TouchableOpacity 
-            style={styles.item} 
-            onPress={() => navigation.navigate(item.screen)}
-        >
-            <Text style={styles.title}>{item.title}</Text>
-        </TouchableOpacity>
-    );
+  const { username, setUsername, password, setPassword, validateLogin } = useLogin();
 
-    return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.text}>Bienvenido!</Text>
-            <Text style={styles.text}>¿Qué te gustaría hacer?</Text>
-            <FlatList
-                data={options}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                style={styles.list}
-            />
-        </SafeAreaView>
-    );
+  const handleCancel = () => {
+    setUsername('');
+    setPassword('');
+  };
+
+  return (
+    <View style={styles.outerContainer}>
+      <Card style={styles.container}>
+        <Text style={styles.texto}>Inicio de Sesión</Text>
+        <Card.Cover source={{ uri: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/06/603732-cars-3-john-lasseter-quiere-volver-origenes.jpg?tf=3840x' }} />
+        <Card.Content style={{ "marginTop": 4 }}>
+          <TextInput
+            label="User name"
+            value={username}
+            onChangeText={setUsername}
+            style={styles.input}
+          />
+          <TextInput
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true}
+            style={styles.input}
+          />
+        </Card.Content>
+        <Card.Actions style={styles.actions}>
+          <Button onPress={handleCancel} mode="outlined" style={styles.button}>
+            Cancelar
+          </Button>
+          <Link href={'/screens/home'}>
+            <Button onPress={validateLogin()} mode="contained" style={styles.button}>
+              Ingresar
+            </Button>
+          </Link>
+        </Card.Actions>
+      </Card>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f0f0f0',
-        paddingTop: StatusBar.currentHeight || 0,
-    },
-    text: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#333',
-        marginBottom: 20,
-    },
-    list: {
-        width: '100%',
-    },
-    item: {
-        backgroundColor: '#fff',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-        borderRadius: 10,
-        elevation: 2,
-    },
-    title: {
-        fontSize: 18,
-        color: '#333',
-    },
+  outerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    padding: 16,
+  },
+  container: {
+    width: '100%',
+    maxWidth: 400,
+    padding: 16,
+  },
+  texto: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ffff',
+    textAlign: 'center',
+    marginVertical: 16,
+  },
+  input: {
+    borderRadius: 8,
+    margin: 4,
+
+  },
+  actions: {
+    justifyContent: 'space-between',
+  },
+  button: {
+    marginHorizontal: 4,
+  },
 });
