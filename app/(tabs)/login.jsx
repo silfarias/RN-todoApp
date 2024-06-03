@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button, Card, Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import useLogin from '../hooks/useLogin.js';
+import useLogin from '../../hooks/useLogin.js';
 
-export default function LoginSreen () {
+export default function LoginScreen () {
   const navigation = useNavigation();
 
   const { username, setUsername, password, setPassword, validateLogin } = useLogin();
@@ -26,7 +26,7 @@ export default function LoginSreen () {
       <Card style={styles.container}>
         <Text style={styles.texto}>Inicio de Sesión</Text>
         <Card.Cover source={{ uri: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/06/603732-cars-3-john-lasseter-quiere-volver-origenes.jpg?tf=3840x' }} />
-        <Card.Content>
+        <Card.Content style={{ "marginTop": 4 }}>
           <TextInput
             label="User name"
             value={username}
@@ -75,7 +75,9 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   input: {
-    marginVertical: 8,
+    borderRadius: 8,
+    margin: 4,
+
   },
   actions: {
     justifyContent: 'space-between',

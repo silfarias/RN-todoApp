@@ -5,6 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import LoginSceeen from './(tabs)/login'
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -29,8 +30,7 @@ export default function RootLayout() {
 
   return (
     <PaperProvider>
-      <Stack initialRouteName='login' screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="login" options={{ headerShown: false }}/>
+      <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
