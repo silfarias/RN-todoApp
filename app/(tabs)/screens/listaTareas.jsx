@@ -5,7 +5,7 @@ export default function ListaTareas() {
 
     return (
         <View style={styles.outerContainer}>
-            <Text style={styles.texto}>Lista de Tareas</Text>
+          <Text style={styles.texto}>Lista de Tareas</Text>
         </View>
     );
 }

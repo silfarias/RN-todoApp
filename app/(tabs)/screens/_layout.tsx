@@ -4,8 +4,10 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export default function TabLayout() {
+  
   const colorScheme = useColorScheme();
 
   return (
@@ -28,8 +30,17 @@ export default function TabLayout() {
         name="listaTareas"
         options={{
           title: 'Lista',
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <FontAwesome6 name="list" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="agregarTarea"
+        options={{
+          title: 'Lista',
+          tabBarIcon: ({ color }) => (
+            <Entypo name="add-to-list" size={24} color={color} />
           ),
         }}
       />
