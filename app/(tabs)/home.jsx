@@ -14,10 +14,7 @@ export default function WelcomeScreen() {
     ];
 
     const renderItem = ({ item }) => (
-        <TouchableOpacity 
-            style={styles.item} 
-            onPress={() => navigation.navigate(item.screen)}
-        >
+        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate(item.screen)}>
             <Text style={styles.title}>{item.title}</Text>
         </TouchableOpacity>
     );

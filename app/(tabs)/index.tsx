@@ -1,12 +1,16 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
 import { TextInput, Button, Card, Text } from 'react-native-paper';
-import { Link } from 'expo-router';
-import useLogin from '../../hooks/useLogin.js';
+import { StyleSheet, View, Alert } from 'react-native';
+import { useLogin } from '@/hooks/useLogin';
+import { router } from 'expo-router';
+
 
 export default function LoginScreen () {
 
   const { username, setUsername, password, setPassword, validateLogin } = useLogin();
+
+  const handleLogin = () => {
+    validateLogin() == true ? router.replace('/home') : alert('Username or password is not valid');
+  }
 
   const handleCancel = () => {
     setUsername('');
@@ -33,15 +37,17 @@ export default function LoginScreen () {
             style={styles.input}
           />
         </Card.Content>
+
         <Card.Actions style={styles.actions}>
+
           <Button onPress={handleCancel} mode="outlined" style={styles.button}>
             Cancelar
           </Button>
-          <Link href={'/screens/home'}>
-            <Button onPress={validateLogin()} mode="contained" style={styles.button}>
-              Ingresar
-            </Button>
-          </Link>
+
+          <Button onPress={handleLogin} mode="contained" style={styles.button}>
+            Ingresar
+          </Button>
+
         </Card.Actions>
       </Card>
     </View>
