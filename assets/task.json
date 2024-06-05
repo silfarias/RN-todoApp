@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "titulo": "Limpiar la casa",
+    "descripcion": "Lavar la ropa, barrer y trapear el piso, etc ",
+    "autor": "Fausto Cuquejo",
+    "fecha": "2024-06-05"
+  },
+  {
+    "id": 2,
+    "titulo": "Cocinar",
+    "descripcion": "Comprar y lavar las verduras, picar la carne, etc",
+    "autor": "Fausto Cuquejo",
+    "fecha": "2024-06-05"
+  },
+  {
+    "id": 3,
+    "titulo": "Hacer actividad deportiva",
+    "descripcion": "Salir a correr",
+    "autor": "Fabián Villagra",
+    "fecha": "2024-06-05"
+  },
+  {
+    "id": 4,
+    "titulo": "Leer un libro",
+    "descripcion": "Leer 'Cien años de soledad'",
+    "autor": "Fabián Villagra",
+    "fecha": "2024-06-05"
+  },
+  {
+    "id": 5,
+    "titulo": "Realizar tareas academicas",
+    "descripcion": "Ver tareas pendientes, realizarlas etc",
+    "autor": "Luis Fernández",
+    "fecha": "2024-06-09"
+  }
+]

@@ -1,27 +1,13 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native-web";
+import { useLocalSearchParams } from 'expo-router';
+import task from '../../assets/task.json'
 
-export default function ListaTareas() {
+export default function VerTarea() {
+  const { id } = useLocalSearchParams();
 
-    return (
-        <View style={styles.outerContainer}>
-          <Text style={styles.texto}>Vista de Tareas</Text>
-        </View>
-    );
+  return (
+    <View>
+      <Text>Ver Tarea</Text>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f0f0f0",
-    padding: 16,
-  },
-  texto: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#cccc",
-    textAlign: "center",
-    marginVertical: 16,
-  },
-});

@@ -3,11 +3,11 @@ import { Button } from "react-native-paper";
 
 export default function AgregarTarea() {
     return (
-        <View style={styles.outerContainer}>
-            <Button mode="contained">
-                Agregar Tarea
-            </Button>
-        </View>
+      <View style={styles.outerContainer}>
+          <Button mode="contained">
+            Agregar Tarea
+          </Button>
+      </View>
     );
 }
 
