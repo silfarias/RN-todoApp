@@ -25,7 +25,12 @@ export default function TabLayout() {
       <Stack.Screen 
         name="verTarea" 
         options={{
-          title: 'Vista de tarea',
+          title: 'Edita una tarea',
+      }} />
+      <Stack.Screen 
+        name="settings" 
+        options={{
+          title: 'Configuraciones de la aplicación',
       }} />
     </Stack>
   );

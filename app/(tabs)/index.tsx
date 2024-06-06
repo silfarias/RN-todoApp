@@ -1,5 +1,5 @@
 import { TextInput, Button, Card, Text } from 'react-native-paper';
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useLogin } from '@/hooks/useLogin';
 import { router } from 'expo-router';
 
@@ -9,14 +9,14 @@ export default function LoginScreen () {
   const { username, setUsername, password, setPassword, validateLogin } = useLogin();
 
   const handleLogin = () => {
-    validateLogin() == true ? router.replace('/home') : alert('Username or password is not valid');
+    validateLogin() == true ? router.replace('/home') : alert('El usuario o la contraseña no son válidos');
   }
 
   const handleCancel = () => {
     setUsername('');
     setPassword('');
   };
-
+  
   return (
     <View style={styles.outerContainer}>
       <Card style={styles.container}>
@@ -24,12 +24,14 @@ export default function LoginScreen () {
         <Card.Cover source={{ uri: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/06/603732-cars-3-john-lasseter-quiere-volver-origenes.jpg?tf=3840x' }} />
         <Card.Content style={{ "marginTop": 4 }}>
           <TextInput
+            mode='outlined'
             label="User name"
             value={username}
             onChangeText={setUsername}
             style={styles.input}
           />
           <TextInput
+            mode='outlined'
             label="Password"
             value={password}
             onChangeText={setPassword}
@@ -77,7 +79,6 @@ const styles = StyleSheet.create({
   input: {
     borderRadius: 8,
     margin: 4,
-
   },
   actions: {
     justifyContent: 'space-between',

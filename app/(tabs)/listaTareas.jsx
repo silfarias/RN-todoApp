@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { useState, useEffect } from "react";
 import { useRouter } from "expo-router";
-import task from '../../assets/task.json'
 import { Foundation } from '@expo/vector-icons';
+import task from '../../assets/task.json'
 
 export default function ListaTareas() {
   const [tareas, setTareas] = useState([]);
@@ -14,12 +14,11 @@ export default function ListaTareas() {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => router.push(`/verTarea`)} >
+      <TouchableOpacity onPress={() => router.push(`/verTarea?id=${item.id}`)} >
         <View style={styles.tarea}>
           <View style={styles.contenido}>
             <View style={styles.texto}>
               <Text style={styles.titulo}>{item.titulo}</Text>
-              <Text style={styles.descripcion}>{item.descripcion}</Text>
             </View>
             <Foundation style={styles.icono} name="clipboard-notes" size={24} color="black" />
           </View>
