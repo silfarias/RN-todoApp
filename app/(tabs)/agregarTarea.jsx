@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button, Card, TextInput } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native-web';
 import { useRouter } from 'expo-router';
-import { AsyncStorage } from 'react-native';
 
 
 export default function AgregarTarea() {

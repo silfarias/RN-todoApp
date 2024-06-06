@@ -35,8 +35,8 @@ export default function AgregarTarea() {
           />
         </Card.Content>
         <Card.Actions>
-          <Button>Cancel</Button>
-          <Button>Ok</Button>
+          <Button>Cancelar</Button>
+          <Button>Guardar</Button>
         </Card.Actions>
       </Card>
     </View>
